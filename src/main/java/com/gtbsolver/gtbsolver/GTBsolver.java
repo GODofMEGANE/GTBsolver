@@ -45,6 +45,9 @@ public class GTBsolver
         try{
             wordlistScanner = new Scanner(new File("wordlist.txt"));
             GTBsolver.logger.info("wordlist.txt is loaded");
+            while(wordlistScanner.hasNextLine()){
+                wordlist.add(wordlistScanner.nextLine());
+            }
         }catch(IOException e){
             System.err.println(e.getMessage());
             GTBsolver.logger.fatal("wordlist.txt is not found!");
@@ -56,10 +59,6 @@ public class GTBsolver
                 ex.printStackTrace();
             }
         }
-        while(wordlistScanner.hasNextLine()){
-            wordlist.add(wordlistScanner.nextLine());
-        }
-
         MinecraftForge.EVENT_BUS.register(this);
     }
 
