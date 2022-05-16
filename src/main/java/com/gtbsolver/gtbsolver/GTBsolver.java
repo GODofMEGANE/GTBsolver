@@ -51,13 +51,6 @@ public class GTBsolver
         }catch(IOException e){
             System.err.println(e.getMessage());
             GTBsolver.logger.fatal("wordlist.txt is not found!");
-            try {
-                FileWriter fw = new FileWriter("wordlist.txt");
-                fw.write("Please input answers list here!");
-                fw.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
         }
         MinecraftForge.EVENT_BUS.register(this);
     }
